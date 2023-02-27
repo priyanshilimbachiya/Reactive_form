@@ -1,0 +1,41 @@
+<div>
+  <h1 style="text-align: center;">
+    Reactive forms
+  </h1>
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]= "firstFormGroup" >
+    <form [formGroup]= "firstFormGroup">
+      <ng-template matStepLabel><mat-icon>group</mat-icon>Name</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="Enter your name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]= "secondFormGroup" >
+    <form [formGroup]= "secondFormGroup">
+      <ng-template matStepLabel><mat-icon>mail</mat-icon>Email</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Enter your Address"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel><mat-icon></mat-icon>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)= "stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+</div>
